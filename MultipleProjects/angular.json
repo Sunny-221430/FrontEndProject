@@ -2,5 +2,128 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ELearningHeader": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ELearningHeader",
+      "sourceRoot": "projects/ELearningHeader/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ELearningHeader",
+            "index": "projects/ELearningHeader/src/index.html",
+            "main": "projects/ELearningHeader/src/main.ts",
+            "polyfills": "projects/ELearningHeader/src/polyfills.ts",
+            "tsConfig": "projects/ELearningHeader/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/ELearningHeader/src/favicon.ico",
+              "projects/ELearningHeader/src/assets"
+            ],
+            "styles": [
+              "projects/ELearningHeader/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ELearningHeader/src/environments/environment.ts",
+                  "with": "projects/ELearningHeader/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ELearningHeader:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ELearningHeader:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ELearningHeader:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ELearningHeader/src/test.ts",
+            "polyfills": "projects/ELearningHeader/src/polyfills.ts",
+            "tsConfig": "projects/ELearningHeader/tsconfig.spec.json",
+            "karmaConfig": "projects/ELearningHeader/karma.conf.js",
+            "assets": [
+              "projects/ELearningHeader/src/favicon.ico",
+              "projects/ELearningHeader/src/assets"
+            ],
+            "styles": [
+              "projects/ELearningHeader/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ELearningHeader/tsconfig.app.json",
+              "projects/ELearningHeader/tsconfig.spec.json",
+              "projects/ELearningHeader/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ELearningHeader/e2e/protractor.conf.js",
+            "devServerTarget": "ELearningHeader:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ELearningHeader:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "ELearningHeader"
 }

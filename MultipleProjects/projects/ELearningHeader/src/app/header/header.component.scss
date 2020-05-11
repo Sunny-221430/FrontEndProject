@@ -1,0 +1,111 @@
+
+*{padding: 0; margin: 0; box-sizing: border-box;}
+body{height: 900px;}
+header {
+	background: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+
+}
+header .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 2px;
+	color: rgb(255, 255, 255);
+	text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 360deg, #b3422eb6 60%, #13c6f3e8 100%);
+	
+}
+
+h1 {
+	font-family: cursive, cursive;
+	font-size: 80px;
+	margin-bottom: 30px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+
+  
+  /* 
+  =====
+  MENU STYLES
+  =====
+  */
+  
+  /* core styles */
+  
+  .menu__list{
+    display: flex;  
+    text-align: left;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;  
+    background-image: linear-gradient( 360deg, #b3422eb6 100%, #13c6f3e8 10%);
+  }
+  
+
+  .menu__link{
+    display: block;
+     padding: 2rem 1.5rem;
+    font-weight: 700;
+    color: #fff;
+  
+  }
+  
+  /* skin */
+  
+  .menu{
+    background: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+    width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+    overflow: hidden;
+    font-style: normal;
+  }
+
+  .menu__link{
+    position: relative;
+    overflow: hidden;
+  
+    will-change: color;
+    transition: color .25s ease-out;  
+  }
+  
+  .menu__link::before, 
+  .menu__link::after{
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: #fff;
+  
+    will-change: width;
+    transition: width .1s ease-out;
+    right: 50%;
+    transform: translateX(50%); 
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .menu__link:hover::before, 
+  .menu__link:hover::after{
+    width: 100%;
+    transition-duration: .2s;
+    color: seagreen;
+  }
+  .menu:hover .menu__link:hover{
+    color: #13c6f3e8;
+    cursor: pointer;
+  }
+  
+ 
