@@ -1,0 +1,32 @@
+body{
+
+    height: 200px;
+    padding:0px;
+    border: transparent;
+    border-style: solid;
+    border-color: #31313180;
+    border-left: black;
+    border-right: black;
+    border-bottom: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footerlogo{
+
+    display: flex;
+    margin-left:15px ;
+}
+.copyright{
+    padding-top:33px ;
+    padding-left: 15px;
+}
+
+.termslogo{
+    display: flex;
+    margin-left:15px ;
+    padding-left: 750px;
+    padding-top:33px ;
+}
+.privacy{
+    padding-left: 20px;
+}

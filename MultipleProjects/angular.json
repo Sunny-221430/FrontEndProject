@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:build",
           "options": {
             "outputPath": "dist/ELearningHeader",
             "index": "projects/ELearningHeader/src/index.html",
@@ -30,7 +30,11 @@
             "styles": [
               "projects/ELearningHeader/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -67,7 +71,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ELearningHeader:build"
+            "browserTarget": "ELearningHeader:build",
+            "port": 8082
           },
           "configurations": {
             "production": {
@@ -124,6 +129,253 @@
           }
         }
       }
-    }},
+    },
+    "ELearningCourses": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ELearningCourses",
+      "sourceRoot": "projects/ELearningCourses/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:build",
+          "options": {
+            "outputPath": "dist/ELearningCourses",
+            "index": "projects/ELearningCourses/src/index.html",
+            "main": "projects/ELearningCourses/src/main.ts",
+            "polyfills": "projects/ELearningCourses/src/polyfills.ts",
+            "tsConfig": "projects/ELearningCourses/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/ELearningCourses/src/favicon.ico",
+              "projects/ELearningCourses/src/assets"
+            ],
+            "styles": [
+              "projects/ELearningCourses/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ELearningCourses/src/environments/environment.ts",
+                  "with": "projects/ELearningCourses/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ELearningCourses:build",
+            "port": 8081
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ELearningCourses:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ELearningCourses:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ELearningCourses/src/test.ts",
+            "polyfills": "projects/ELearningCourses/src/polyfills.ts",
+            "tsConfig": "projects/ELearningCourses/tsconfig.spec.json",
+            "karmaConfig": "projects/ELearningCourses/karma.conf.js",
+            "assets": [
+              "projects/ELearningCourses/src/favicon.ico",
+              "projects/ELearningCourses/src/assets"
+            ],
+            "styles": [
+              "projects/ELearningCourses/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ELearningCourses/tsconfig.app.json",
+              "projects/ELearningCourses/tsconfig.spec.json",
+              "projects/ELearningCourses/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ELearningCourses/e2e/protractor.conf.js",
+            "devServerTarget": "ELearningCourses:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ELearningCourses:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "ELearningAbout": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ELearningAbout",
+      "sourceRoot": "projects/ELearningAbout/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:build",
+          "options": {
+            "outputPath": "dist/ELearningAbout",
+            "index": "projects/ELearningAbout/src/index.html",
+            "main": "projects/ELearningAbout/src/main.ts",
+            "polyfills": "projects/ELearningAbout/src/polyfills.ts",
+            "tsConfig": "projects/ELearningAbout/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/ELearningAbout/src/favicon.ico",
+              "projects/ELearningAbout/src/assets"
+            ],
+            "styles": [
+              "projects/ELearningAbout/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ELearningAbout/src/environments/environment.ts",
+                  "with": "projects/ELearningAbout/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ELearningAbout:build",
+            "port": 8080
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ELearningAbout:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ELearningAbout:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ELearningAbout/src/test.ts",
+            "polyfills": "projects/ELearningAbout/src/polyfills.ts",
+            "tsConfig": "projects/ELearningAbout/tsconfig.spec.json",
+            "karmaConfig": "projects/ELearningAbout/karma.conf.js",
+            "assets": [
+              "projects/ELearningAbout/src/favicon.ico",
+              "projects/ELearningAbout/src/assets"
+            ],
+            "styles": [
+              "projects/ELearningAbout/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ELearningAbout/tsconfig.app.json",
+              "projects/ELearningAbout/tsconfig.spec.json",
+              "projects/ELearningAbout/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ELearningAbout/e2e/protractor.conf.js",
+            "devServerTarget": "ELearningAbout:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ELearningAbout:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "ELearningHeader"
 }
